@@ -53,10 +53,11 @@ class BankingOperations {
     });
   }
 
-  updateAnAccount(accountNumber, newAccountHolderName) {
+  updateAnAccount(accountNumber, newAccountHolderName, newAccountType) {
     const selectedAccount = this.findAnAccount(accountNumber);
     if (selectedAccount) {
-      account.accountHolderName = newAccountHolderName;
+      selectedAccount.accountHolderName = newAccountHolderName;
+      selectedAccount.accountType = newAccountType;
       console.log("Processing your information...");
       console.log("...");
       console.log("...");
@@ -66,6 +67,14 @@ class BankingOperations {
       console.log("...");
       console.log("...");
       console.log("Your account information has been updated succesfully!");
+    } else {
+      console.log("Processing your information...");
+      console.log("...");
+      console.log("...");
+      console.log("...");
+      console.log(
+        `An account of id ${accountNumber} does not exist! Please carefully input the account number.`
+      );
     }
   }
 }
