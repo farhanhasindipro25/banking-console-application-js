@@ -20,7 +20,7 @@
 - Each account type may require a minimum balance to open the account.
 - Each account type may require to keep a minimum balance before withdrawing an amount.
 
-# Technology Used
+# Programming Language Used
 
 `Javascript`
 
