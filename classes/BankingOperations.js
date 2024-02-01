@@ -30,7 +30,13 @@ class BankingOperations {
       initialDeposit
     );
     console.log("Processing your details...");
+    console.log("...");
+    console.log("...");
+    console.log("...");
     console.log("Please Wait...");
+    console.log("...");
+    console.log("...");
+    console.log("...");
     this.accounts.push(newAccount);
     console.log("Your account has been created successfully!");
   }
@@ -45,6 +51,22 @@ class BankingOperations {
         Account Balance: ${account.accountBalance}
       `);
     });
+  }
+
+  updateAnAccount(accountNumber, newAccountHolderName) {
+    const selectedAccount = this.findAnAccount(accountNumber);
+    if (selectedAccount) {
+      account.accountHolderName = newAccountHolderName;
+      console.log("Processing your information...");
+      console.log("...");
+      console.log("...");
+      console.log("...");
+      console.log("Please wait...");
+      console.log("...");
+      console.log("...");
+      console.log("...");
+      console.log("Your account information has been updated succesfully!");
+    }
   }
 }
 
