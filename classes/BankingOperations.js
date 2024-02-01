@@ -77,6 +77,24 @@ class BankingOperations {
       );
     }
   }
+
+  deleteAnAccount(accountNumber) {
+    const index = this.accounts.findIndex(
+      (account) => account.accountNumber === accountNumber
+    );
+    if (index !== -1) {
+      this.accounts.splice(index, 1);
+      console.log("Processing, please wait...");
+      console.log("...");
+      console.log("...");
+      console.log("...");
+      console.log("Your account has been deleted successfully.");
+    } else {
+      console.log(
+        `An account of id ${accountNumber} does not exist! Please carefully input the account number.`
+      );
+    }
+  }
 }
 
 export default BankingOperations;
