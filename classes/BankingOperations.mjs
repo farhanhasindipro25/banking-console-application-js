@@ -49,26 +49,26 @@ class BankingOperations {
         Account Number: ${newAccount.accountNumber}
         Account Type: ${newAccount.accountType}
         Date of Creation: ${newAccount.creationDate.toDateString()}
-        Account Balance: ${newAccount.accountBalance}
+        Account Balance: ${newAccount.accountBalance} BDT
       `);
   }
 
   displayAllAccounts() {
     if (this.accounts.length > 0) {
+      console.log();
+      console.log(
+        `Showing ${this.accounts.length} ${
+          this.accounts.length > 1 ? "accounts" : "account"
+        }`
+      );
+      console.log();
       this.accounts.forEach((account) => {
-        console.log();
-        console.log(
-          `Showing ${this.accounts.length} {${
-            this.accounts.length > 0 ? "accounts" : "account"
-          }}`
-        );
-        console.log();
         console.log(`
           Account Holder: ${account.accountHolderName}
           Account Number: ${account.accountNumber}
           Account Type: ${account.accountType}
           Date of Creation: ${account.creationDate.toDateString()}
-          Account Balance: ${account.accountBalance}
+          Account Balance: ${account.accountBalance} BDT
         `);
       });
     } else {
@@ -92,6 +92,16 @@ class BankingOperations {
       console.log("...");
       console.log("...");
       console.log("Your account information has been updated succesfully!");
+      console.log("...");
+      console.log("Review your account details:");
+      console.log("...");
+      console.log(`
+        Account Holder: ${selectedAccount.accountHolderName}
+        Account Number: ${selectedAccount.accountNumber}
+        Account Type: ${selectedAccount.accountType}
+        Date of Creation: ${selectedAccount.creationDate.toDateString()}
+        Account Balance: ${selectedAccount.accountBalance} BDT
+      `);
     } else {
       console.log();
       console.log("Processing your information...");
@@ -116,6 +126,16 @@ class BankingOperations {
       console.log("...");
       console.log("...");
       console.log("Your account has been deleted successfully.");
+      console.log("...");
+      console.log("...");
+      console.log("...");
+      console.log(
+        `${this.accounts.length} ${
+          this.accounts.length > 1 ? "accounts" : "account"
+        } left`
+      );
+
+      console.log();
     } else {
       console.log(
         `An account of id ${accountNumber} does not exist! Please carefully input the account number.`
@@ -133,28 +153,34 @@ class BankingOperations {
       console.log("...");
       console.log("...");
       console.log(
-        `${amount} BDT was deposited to your account. New Balance: ${selectedAccount.accountBalance}`
+        `${amount} BDT was deposited to your account. Your New Balance: ${selectedAccount.accountBalance} BDT`
       );
+      console.log();
     } else {
       console.log(
         `An account of id ${accountNumber} does not exist! Please carefully input the account number.`
       );
+      console.log();
     }
   }
 
   withdrawAmount(amount, accountNumber) {
     const selectedAccount = this.findAnAccount(accountNumber);
     if (selectedAccount) {
-      if (selectedAccount.balance >= amount && selectedAccount.balance >= 100) {
-        selectedAccount.balance -= amount;
+      if (
+        selectedAccount.accountBalance > amount &&
+        selectedAccount.accountBalance > 100
+      ) {
+        selectedAccount.accountBalance -= amount;
         console.log();
         console.log("Processing, please wait...");
         console.log("...");
         console.log("...");
         console.log("...");
         console.log(
-          `${amount} BDT has been withdrawn successfully. New Balance: ${selectedAccount.accountBalance}`
+          `${amount} BDT has been withdrawn successfully. Your New Balance: ${selectedAccount.accountBalance} BDT`
         );
+        console.log();
       } else {
         console.log();
         console.log("Processing, please wait...");
@@ -167,6 +193,7 @@ class BankingOperations {
       console.log(
         `An account of id ${accountNumber} does not exist! Please carefully input the account number.`
       );
+      console.log();
     }
   }
 

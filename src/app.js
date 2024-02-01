@@ -72,20 +72,20 @@ const worldBank = new BankingOperations();
 
       case 5:
         console.log();
+        const accountNumberToDeposit = await prompt("Enter account number:");
         const depositAmount = parseFloat(
           await prompt("Enter amount you want to deposit:")
         );
-        const accountNumberToDeposit = await prompt("Enter account number:");
-        worldBank.deposit(depositAmount, accountNumberToDeposit);
+        worldBank.depositAmount(depositAmount, accountNumberToDeposit);
         break;
 
       case 6:
         console.log();
+        const accountNumberToWithdraw = await prompt("Enter account number:");
         const withdrawAmount = parseFloat(
           await prompt("Enter amount you want to withdraw:")
         );
-        const accountNumberToWithdraw = await prompt("Enter account number:");
-        worldBank.withdraw(withdrawAmount, accountNumberToWithdraw);
+        worldBank.withdrawAmount(withdrawAmount, accountNumberToWithdraw);
         break;
 
       case 7:
