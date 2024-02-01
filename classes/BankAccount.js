@@ -3,7 +3,7 @@ class BankAccount {
     this.accountHolderName = accountHolderName;
     this.accountNumber = accountNumber;
     this.accountType = accountType;
-    this.accountBalance = accountBalance;
+    this.accountBalance = accountBalance || 0;
     this.creationDate = new Date();
   }
 }

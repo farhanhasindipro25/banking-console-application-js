@@ -30,6 +30,18 @@ class BankingOperations {
     this.accounts.push(newAccount);
     console.log("Your account has been created successfully!");
   }
+
+  displayAllAccounts() {
+    this.accounts.forEach((account) => {
+      console.log(`
+        Account Holder: ${account.accountHolderName}
+        Account Number: ${account.accountNumber}
+        Account Type: ${account.accountType}
+        Date of Creation: ${account.creationDate.toDateString()}
+        Account Balance: ${account.accountBalance}
+      `);
+    });
+  }
 }
 
 export default BankingOperations;
