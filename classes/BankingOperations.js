@@ -95,6 +95,24 @@ class BankingOperations {
       );
     }
   }
+
+  depositAmount(amount, accountNumber) {
+    const selectedAccount = this.findAnAccount(accountNumber);
+    if (selectedAccount) {
+      account.accountBalance += amount;
+      console.log("Processing, please wait...");
+      console.log("...");
+      console.log("...");
+      console.log("...");
+      console.log(
+        `${amount} BDT was deposited to your account. New Balance: ${account.accountBalance}`
+      );
+    } else {
+      console.log(
+        `An account of id ${accountNumber} does not exist! Please carefully input the account number.`
+      );
+    }
+  }
 }
 
 export default BankingOperations;
