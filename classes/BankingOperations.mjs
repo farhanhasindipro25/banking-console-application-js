@@ -1,4 +1,4 @@
-import BankAccount from "./bankAccount";
+import BankAccount from "./BankAccount.mjs";
 
 class BankingOperations {
   constructor() {
@@ -6,7 +6,7 @@ class BankingOperations {
   }
 
   findAnAccount(accountNumber) {
-    doesAccountAlreadyExist = this.accounts.find(
+    const doesAccountAlreadyExist = this.accounts.find(
       (account) => account.accountNumber === accountNumber
     );
     return doesAccountAlreadyExist;
@@ -43,11 +43,11 @@ class BankingOperations {
     console.log("Your account details");
     console.log("...");
     console.log(`
-        Account Holder: ${account.accountHolderName}
-        Account Number: ${account.accountNumber}
-        Account Type: ${account.accountType}
-        Date of Creation: ${account.creationDate.toDateString()}
-        Account Balance: ${account.accountBalance}
+        Account Holder: ${newAccount.accountHolderName}
+        Account Number: ${newAccount.accountNumber}
+        Account Type: ${newAccount.accountType}
+        Date of Creation: ${newAccount.creationDate.toDateString()}
+        Account Balance: ${newAccount.accountBalance}
       `);
   }
 
@@ -154,11 +154,11 @@ class BankingOperations {
     const selectedAccount = this.findAnAccount(accountNumber);
     if (selectedAccount) {
       console.log(`
-        Account Holder: ${account.accountHolderName}
-        Account Number: ${account.accountNumber}
-        Account Type: ${account.accountType}
-        Date of Creation: ${account.creationDate.toDateString()}
-        Account Balance: ${account.accountBalance}
+        Account Holder: ${selectedAccount.accountHolderName}
+        Account Number: ${selectedAccount.accountNumber}
+        Account Type: ${selectedAccount.accountType}
+        Date of Creation: ${selectedAccount.creationDate.toDateString()}
+        Account Balance: ${selectedAccount.accountBalance}
       `);
     } else {
       console.log(
