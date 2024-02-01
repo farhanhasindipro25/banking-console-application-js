@@ -99,14 +99,40 @@ class BankingOperations {
   depositAmount(amount, accountNumber) {
     const selectedAccount = this.findAnAccount(accountNumber);
     if (selectedAccount) {
-      account.accountBalance += amount;
+      selectedAccount.accountBalance += amount;
       console.log("Processing, please wait...");
       console.log("...");
       console.log("...");
       console.log("...");
       console.log(
-        `${amount} BDT was deposited to your account. New Balance: ${account.accountBalance}`
+        `${amount} BDT was deposited to your account. New Balance: ${selectedAccount.accountBalance}`
       );
+    } else {
+      console.log(
+        `An account of id ${accountNumber} does not exist! Please carefully input the account number.`
+      );
+    }
+  }
+
+  withdrawAmount(amount, accountNumber) {
+    const selectedAccount = this.findAnAccount(accountNumber);
+    if (selectedAccount) {
+      if (selectedAccount.balance >= amount && selectedAccount.balance >= 100) {
+        selectedAccount.balance -= amount;
+        console.log("Processing, please wait...");
+        console.log("...");
+        console.log("...");
+        console.log("...");
+        console.log(
+          `${amount} BDT has been withdrawn successfully. New Balance: ${selectedAccount.accountBalance}`
+        );
+      } else {
+        console.log("Processing, please wait...");
+        console.log("...");
+        console.log("...");
+        console.log("...");
+        console.log("Withdraw failed. You have insufficient funds.");
+      }
     } else {
       console.log(
         `An account of id ${accountNumber} does not exist! Please carefully input the account number.`
