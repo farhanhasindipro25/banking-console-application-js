@@ -5,16 +5,20 @@ class BankingOperations {
     this.accounts = [];
   }
 
+  findAnAccount(accountNumber) {
+    doesAccountAlreadyExist = this.accounts.find(
+      (account) => account.accountNumber === accountNumber
+    );
+    return doesAccountAlreadyExist;
+  }
+
   createNewAccount(
     accountHolderName,
     accountNumber,
     accountType,
     initialDeposit
   ) {
-    const doesAccountAlreadyExist = this.accounts.find(
-      (account) => account.accountNumber === accountNumber
-    );
-    if (doesAccountAlreadyExist) {
+    if (this.findAnAccount()) {
       console.log(`Account Number ${accountNumber} already exists!`);
       return;
     }
