@@ -39,6 +39,16 @@ class BankingOperations {
     console.log("...");
     this.accounts.push(newAccount);
     console.log("Your account has been created successfully!");
+    console.log("...");
+    console.log("Your account details");
+    console.log("...");
+    console.log(`
+        Account Holder: ${account.accountHolderName}
+        Account Number: ${account.accountNumber}
+        Account Type: ${account.accountType}
+        Date of Creation: ${account.creationDate.toDateString()}
+        Account Balance: ${account.accountBalance}
+      `);
   }
 
   displayAllAccounts() {
@@ -133,6 +143,23 @@ class BankingOperations {
         console.log("...");
         console.log("Withdraw failed. You have insufficient funds.");
       }
+    } else {
+      console.log(
+        `An account of id ${accountNumber} does not exist! Please carefully input the account number.`
+      );
+    }
+  }
+
+  searchAnAccount(accountNumber) {
+    const selectedAccount = this.findAnAccount(accountNumber);
+    if (selectedAccount) {
+      console.log(`
+        Account Holder: ${account.accountHolderName}
+        Account Number: ${account.accountNumber}
+        Account Type: ${account.accountType}
+        Date of Creation: ${account.creationDate.toDateString()}
+        Account Balance: ${account.accountBalance}
+      `);
     } else {
       console.log(
         `An account of id ${accountNumber} does not exist! Please carefully input the account number.`
