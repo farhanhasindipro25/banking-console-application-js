@@ -32,6 +32,7 @@ const worldBank = new BankingOperations();
 
     switch (choice) {
       case 1:
+        console.log();
         const name = await prompt("Name of account holder:");
         const accountNumber = await prompt("Enter account number:");
         const accountType = await prompt("Enter account type:");
@@ -47,10 +48,12 @@ const worldBank = new BankingOperations();
         break;
 
       case 2:
+        console.log();
         worldBank.displayAllAccounts();
         break;
 
       case 3:
+        console.log();
         const accountNumberToUpdate = await prompt(
           "Enter account number to update:"
         );
@@ -60,6 +63,7 @@ const worldBank = new BankingOperations();
         break;
 
       case 4:
+        console.log();
         const accountNumberToDelete = await prompt(
           "Enter account number to delete:"
         );
@@ -67,6 +71,7 @@ const worldBank = new BankingOperations();
         break;
 
       case 5:
+        console.log();
         const depositAmount = parseFloat(
           await prompt("Enter amount you want to deposit:")
         );
@@ -75,6 +80,7 @@ const worldBank = new BankingOperations();
         break;
 
       case 6:
+        console.log();
         const withdrawAmount = parseFloat(
           await prompt("Enter amount you want to withdraw:")
         );
@@ -83,6 +89,7 @@ const worldBank = new BankingOperations();
         break;
 
       case 7:
+        console.log();
         const accountNumberToSearch = await prompt(
           "Enter account number you are looking for:"
         );
@@ -90,10 +97,12 @@ const worldBank = new BankingOperations();
         break;
 
       case 8:
+        console.log();
         console.log("Exiting the application. Thanks for participating!");
         process.exit();
 
       default:
+        console.log();
         console.log("Invalid choice. Please enter a number between 1 and 8.");
     }
   }

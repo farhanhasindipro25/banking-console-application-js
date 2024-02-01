@@ -2,5 +2,7 @@
   "type": "module",
   "scripts": {
     "start": "node src/app.js"
-  }
+  },
+  "author": "Farhan Hasin Dipro",
+  "license": "ISC"
 }

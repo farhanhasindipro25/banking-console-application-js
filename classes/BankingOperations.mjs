@@ -29,6 +29,7 @@ class BankingOperations {
       accountType,
       initialDeposit
     );
+    console.log();
     console.log("Processing your details...");
     console.log("...");
     console.log("...");
@@ -38,9 +39,10 @@ class BankingOperations {
     console.log("...");
     console.log("...");
     this.accounts.push(newAccount);
+    console.log();
     console.log("Your account has been created successfully!");
     console.log("...");
-    console.log("Your account details");
+    console.log("Review your account details:");
     console.log("...");
     console.log(`
         Account Holder: ${newAccount.accountHolderName}
@@ -52,15 +54,27 @@ class BankingOperations {
   }
 
   displayAllAccounts() {
-    this.accounts.forEach((account) => {
-      console.log(`
-        Account Holder: ${account.accountHolderName}
-        Account Number: ${account.accountNumber}
-        Account Type: ${account.accountType}
-        Date of Creation: ${account.creationDate.toDateString()}
-        Account Balance: ${account.accountBalance}
-      `);
-    });
+    if (this.accounts.length > 0) {
+      this.accounts.forEach((account) => {
+        console.log();
+        console.log(
+          `Showing ${this.accounts.length} {${
+            this.accounts.length > 0 ? "accounts" : "account"
+          }}`
+        );
+        console.log();
+        console.log(`
+          Account Holder: ${account.accountHolderName}
+          Account Number: ${account.accountNumber}
+          Account Type: ${account.accountType}
+          Date of Creation: ${account.creationDate.toDateString()}
+          Account Balance: ${account.accountBalance}
+        `);
+      });
+    } else {
+      console.log("No accounts to show!");
+      console.log();
+    }
   }
 
   updateAnAccount(accountNumber, newAccountHolderName, newAccountType) {
@@ -68,6 +82,7 @@ class BankingOperations {
     if (selectedAccount) {
       selectedAccount.accountHolderName = newAccountHolderName;
       selectedAccount.accountType = newAccountType;
+      console.log();
       console.log("Processing your information...");
       console.log("...");
       console.log("...");
@@ -78,6 +93,7 @@ class BankingOperations {
       console.log("...");
       console.log("Your account information has been updated succesfully!");
     } else {
+      console.log();
       console.log("Processing your information...");
       console.log("...");
       console.log("...");
@@ -94,6 +110,7 @@ class BankingOperations {
     );
     if (index !== -1) {
       this.accounts.splice(index, 1);
+      console.log();
       console.log("Processing, please wait...");
       console.log("...");
       console.log("...");
@@ -110,6 +127,7 @@ class BankingOperations {
     const selectedAccount = this.findAnAccount(accountNumber);
     if (selectedAccount) {
       selectedAccount.accountBalance += amount;
+      console.log();
       console.log("Processing, please wait...");
       console.log("...");
       console.log("...");
@@ -129,6 +147,7 @@ class BankingOperations {
     if (selectedAccount) {
       if (selectedAccount.balance >= amount && selectedAccount.balance >= 100) {
         selectedAccount.balance -= amount;
+        console.log();
         console.log("Processing, please wait...");
         console.log("...");
         console.log("...");
@@ -137,6 +156,7 @@ class BankingOperations {
           `${amount} BDT has been withdrawn successfully. New Balance: ${selectedAccount.accountBalance}`
         );
       } else {
+        console.log();
         console.log("Processing, please wait...");
         console.log("...");
         console.log("...");
@@ -153,6 +173,9 @@ class BankingOperations {
   searchAnAccount(accountNumber) {
     const selectedAccount = this.findAnAccount(accountNumber);
     if (selectedAccount) {
+      console.log();
+      console.log("Showing search results");
+      console.log();
       console.log(`
         Account Holder: ${selectedAccount.accountHolderName}
         Account Number: ${selectedAccount.accountNumber}
