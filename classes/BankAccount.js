@@ -1,9 +1,9 @@
 class BankAccount {
-  constructor(name, number, type, balance) {
-    this.name = name;
-    this.number = number;
-    this.type = type;
-    this.balance = balance;
+  constructor(accountHolderName, accountNumber, accountType, accountBalance) {
+    this.accountHolderName = accountHolderName;
+    this.accountNumber = accountNumber;
+    this.accountType = accountType;
+    this.accountBalance = accountBalance;
     this.creationDate = new Date();
   }
 }
